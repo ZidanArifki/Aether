@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Aether Admin</title>
+
+    <link rel="stylesheet"
+          href="admin.css">
+
+
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="logo-area">
+
+            <img src="../images/logo.png"
+                 class="logo-img">
+
+            <h2>Aether</h2>
+
+        </div>
+
+        <nav class="sidebar-menu">
+
+    <a href="#"
+    id="menuDashboard"
+    onclick="showSection('dashboard')">
+
+        Dashboard
+
+    </a>
+
+    <a href="#"
+    id="menuBases"
+    onclick="showSection('bases')">
+
+        Bases
+
+    </a>
+
+    <a href="#"
+    id="menuUsers"
+    onclick="showSection('users')">
+
+        Users
+
+    </a>
+
+    <a href="#"
+    onclick="logout()">
+
+        Logout
+
+    </a>
+
+</nav>
+
+
+    </aside>
+
+    <!-- MAIN -->
+    <main class="main-content">
+
+        <div class="topbar">
+
+            <h1>
+                Admin Dashboard
+            </h1>
+
+            <div class="admin-profile">
+
+                SUPERADMIN
+
+            </div>
+
+        </div>
+<section id="dashboardSection">
+        <!-- STATS -->
+        <div class="stats-grid">
+
+            <div class="stat-card">
+
+                <h3>Total Bases</h3>
+
+                <p id="totalBases">
+                        0
+                </p>
+
+            </div>
+
+            <div class="stat-card">
+
+                <h3>Total Users</h3>
+
+                <p id="totalUsers">
+                    0
+                </p>
+
+            </div>
+
+            <div class="stat-card">
+
+                <h3>Trending</h3>
+
+                <p id="trendingCategory">
+                    -
+                </p>
+
+            </div>
+
+        </div>
+</section>
+<section id="basesSection"
+style="display:none;">
+
+    <!-- UPLOAD BASE -->
+
+    <div class="glass-card">
+
+        <h2>Upload New Base</h2>
+
+        <div class="upload-form">
+
+            <input type="text"
+            id="title"
+            placeholder="Base Title">
+
+            <input type="text"
+            id="category"
+            placeholder="Category">
+
+            <input type="text"
+            id="layoutLink"
+            placeholder="Layout Link">
+
+            <input type="file"
+            id="imageFile">
+
+            <button onclick="uploadBase()">
+
+                Upload Base
+
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- BASE LIST -->
+
+    <div class="glass-card">
+
+        <h2>
+            Uploaded Bases
+        </h2>
+
+        <div id="baseList"
+        class="base-list">
+
+        </div>
+
+    </div>
+
+</section>
+
+<section id="usersSection"
+style="display:none;">
+
+    <!-- CREATE USER -->
+
+    <div class="glass-card"
+    id="createUserCard">
+
+        <h2>
+            Create User
+        </h2>
+
+        <div class="upload-form">
+
+            <input type="text"
+            id="newName"
+            placeholder="Name">
+
+            <input type="email"
+            id="newEmail"
+            placeholder="Email">
+
+            <input type="password"
+            id="newPassword"
+            placeholder="Password">
+
+            <select id="newRole">
+
+                <option value="member">
+                    Member
+                </option>
+
+                <option value="admin">
+                    Admin
+                </option>
+
+            </select>
+
+            <button onclick="createUser()">
+
+                Create User
+
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- USER LIST -->
+
+    <div class="glass-card">
+
+        <h2>
+            User List
+        </h2>
+
+        <div id="usersList">
+
+        </div>
+
+    </div>
+
+</section>
+
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-storage.js"></script>
+
+<script src="admin.js"></script>
+
+</body>
+</html>
